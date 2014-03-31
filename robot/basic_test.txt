@@ -1,0 +1,8 @@
+*** Settings ***
+Resource            resource.txt
+Suite Teardown      Close Browser
+
+*** Testcases ***
+
+Something should happen with Robot Framework
+    Open App page

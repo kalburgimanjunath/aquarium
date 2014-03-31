@@ -1,0 +1,7 @@
+application.name = Aquarium
+
+
+logout = Logout
+
+mails.sendSignUpEmail.subject=Akvaario: Sign up instructions
+mails.welcomeEmail.subject=Welcome to Akvaario!

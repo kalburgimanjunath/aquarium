@@ -1,0 +1,106 @@
+@(role: Option[UserRole])(content: Html)
+@appName = @{ Messages("application.name") }
+@import play.api.Play.current
+
+<!DOCTYPE html>
+
+<html ng-app="akvaario">
+<head>
+  <meta charset="utf-8">
+  <title>Akvaario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="@routes.Assets.at("lib/bootstrap/bootstrap.min.css")" rel="stylesheet">
+  <link href="@routes.Assets.at("src/css/main.css")" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+  <!-- Standard iPhone --> 
+  <link rel="apple-touch-icon" sizes="57x57" href="@routes.Assets.at("images/apple-touch-icon-iphone.png")">
+  <!-- Retina iPhone --> 
+  <link rel="apple-touch-icon" sizes="114x114" href="@routes.Assets.at("images/apple-touch-icon-iphone-retina.png")">
+  <!-- Standard iPad --> 
+  <link rel="apple-touch-icon" sizes="72x72" href="@routes.Assets.at("images/apple-touch-icon-ipad.png")">
+  <!-- Retina iPad --> 
+  <link rel="apple-touch-icon" sizes="144x144" href="@routes.Assets.at("images/apple-touch-icon-ipad-retina.png")">
+
+  <script src="//code.jquery.com/jquery.js"></script>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <!-- REMEMBER: GA does not work with AdBlock enabled! -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  var dimensionValue = "@(role.map { r=> r.getName} getOrElse(""))";
+
+  @if(play.api.Play.isProd){
+    // For actual analytics (not localhost)
+    ga('create', 'UA-47866178-1', 'futurice.com');
+  } else {
+    // This row for localhost analytics (not production)
+    ga('create', 'UA-47866178-1', 'cookieDomain': 'none');
+  }
+  ga('send', 'pageview');
+  ga('send', 'action');
+  // Track page views (every time page is loaded)
+  ga('send', 'event', 'page-loaded', 'Page (re)loaded');
+  ga('set', 'dimension1', dimensionValue);
+  ga('send', 'pageview');
+  </script>
+  <!-- END Google Analytics -->
+
+</head>
+
+<body>
+
+  <!-- Page Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div id="status-left">
+        <img src="@routes.Assets.at("images/logo.png")" id="logo">
+        <h1 id="akvaario-heading" onclick="ga('send', 'event', 'useless-click', 'Akvaario clicked');">Akvaario</h1>
+        <h3 id="project-name" onclick="ga('send', 'event', 'useless-click', 'Project name clicked');"></h3>
+      </div>
+
+      <div id="status-right">
+        <i class="fa fa-user fa-lg" style="color:white"></i>
+        <span id="loggedIn-user"></span>
+        <a id="logout-link" href="@securesocial.controllers.routes.LoginPage.logout">
+          <button type="button" id="logout" class="btn btn-default">
+            <i class="fa fa-lock fa-lg"></i> Logout
+          </button>
+        </a>
+        @role.map { r =>
+        @if(r.getName == Roles.EMPLOYEE) {
+        <a href="#" id="admin-section-link">
+          <button type="button" id="admin-button" class="btn btn-default">
+            <i class="fa fa-cog fa-lg"></i> Admin
+          </button>
+        </a>
+      }
+    }
+  </div>
+</div>
+</div>
+
+<!-- Page content from partials -->
+<div class="container" id="main">
+  <div class="row" ng-view></div>
+  @content
+</div>
+
+<!-- javascript -->
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="@routes.Assets.at("lib/d3.v3.min.js")"></script>
+<script src="@routes.Assets.at("lib/dimple.v1.1.5.min.js")"></script>
+<script src="@routes.Assets.at("lib/bootstrap/bootstrap.js")"></script>
+<script src="@routes.Assets.at("lib/angular/angular.js")"></script>
+<script src="@routes.Assets.at("lib/angular/angular-route.js")"></script>
+<script src="@routes.Assets.at("lib/angular/angular-bootstrap-0.10.0.js")"></script>
+<script src="@routes.Assets.at("src/js/app.js")"></script>
+<script src="@routes.Assets.at("src/js/controllers.js")"></script>
+<script src="@routes.Assets.at("src/js/graphics.js")"></script>
+
+</body>
+</html>

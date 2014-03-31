@@ -1,0 +1,47 @@
+@(errorNumber: String)
+<html>
+<head>
+	<title>@errorNumber</title>
+	<link href="@routes.Assets.at("src/css/errorPage.css")" rel="stylesheet">
+</head>
+<body>
+	<div id="text">
+		@{if(errorNumber == "404")
+		"404 Not Found"
+		else if(errorNumber == "403")
+		"403 Forbidden"
+		else if(errorNumber == "500")
+		"500 Internal Server Error"
+		else
+		errorNumber
+	}
+</div>
+
+<style>
+html {
+	margin: 0;
+	min-height: 300px;
+}
+
+body {
+	margin: 0;
+	background-color: #ffffff;
+	background-image: url('/assets/images/futurice-splash-error.png');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	top: 40%;
+	width:100%;
+	position: absolute;
+	text-align: center;
+}
+
+#text {
+	display: block;
+	font-family: "museo-sans-1", "museo-sans-2", 'Gill Sans', 'Century Gothic', 'Arial', sans-serif;
+	font-weight: 500;
+	font-size: 60px;
+	color: #4c9018;
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!-- Left Side -->
+
+<div class="col-lg-8 col-md-7 col-sm-12">
+  <div id="leftside">
+
+    <!--Status-->
+    <div class="row">
+      <div class="status-module">
+        <div ng-include="statusTemplate"></div>
+      </div>
+    </div>
+    
+    <!--Budget Graph -->
+    <div class="panel panel-default row" id="budgetModule">
+      <div class="panel-heading">Budget</div>
+      <div class="panel-body">
+        <div id="budgetChartContainer"></div>
+      </div>
+    </div>
+
+    <!--Links-->
+    <div class="row">
+      <div class="link-module">
+        <div ng-include="linkTemplate"></div>
+      </div>
+    </div>
+
+    <!--Mail-->
+    <div class="row">
+      <div class="mail-module">
+        <accordion close-others="false">
+          <div ng-include="mailTemplate"></div>
+        </accordion>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--Right side -->
+<div class="col-lg-4 col-md-5 col-sm-12">
+  
+  <!-- Customer contacts-->
+  <div class="row">
+    <div class="customer-contact-module">
+      <div class="panel panel-default">
+        <div class="panel-heading">Customer contacts</div>
+        <div class="panel-body">
+          <div ng-include="customerContactsTemplate"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts-->
+  <div class="row">
+    <div class="contact-module">
+      <div class="panel panel-default">
+        <div class="panel-heading">Project contacts</div>
+        <div class="panel-body">
+          <div ng-include="contactsTemplate"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

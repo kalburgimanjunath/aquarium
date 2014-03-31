@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Tauno Testiasiakas",
+    "title": "CIO",
+    "email": "tauno@testi.fi",
+    "phoneNumber": "0501234567",
+    "project": "PFuturiceDashboard"
+  },
+  {
+    "name": "Aarne Asiakas",
+    "title": "",
+    "email": "aarne@testi.fi",
+    "phoneNumber": "0401234567",
+    "project": "PAaltoScampi"
+  },
+  {
+    "name": "Jaakko johtaja",
+    "title": "Toimitusjohtaja",
+    "email": "jaakko@pomo.fi",
+    "phoneNumber": "09 123 4567",
+    "project": "PFuturiceDashboard"
+  }
+]

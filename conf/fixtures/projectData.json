@@ -1,0 +1,53 @@
+[
+  {
+    "name": "PAaltoScampi",
+    "description": "",
+    "email": "project-aalto-scampi@futurice.com",
+    "email_aliases": [],
+    "editor_group": null,
+    "users": [
+      "hleh",
+      "kpup",
+      "kzag",
+      "cmpit",
+      "nblu",
+      "ogre",
+      "employee"
+    ]
+  },
+  {
+    "name": "PFuturiceDashboard",
+    "description": "Aquarium / Akvaario. LCM internal project",
+    "email": "project-futurice-dashboard@futurice.com",
+    "email_aliases": [],
+    "editor_group": null,
+    "users": [
+      "carr",
+      "emvi",
+      "juka",
+      "jpaa",
+      "emkos",
+      "nkoh",
+      "ndol",
+      "nlin",
+      "oehn",
+      "pcar",
+      "rudd",
+      "tpaa",
+      "vkra",
+      "devtest"
+    ]
+  },
+  {
+  "name": "TestProject",
+  "description": "Only used for testing. Shall have no forms attached!",
+  "email": "Nothing@futurice.com",
+  "email_aliases": [],
+  "editor_group": null,
+  "users": [
+    "devtest",
+    "employee"
+  ]
+}
+
+]

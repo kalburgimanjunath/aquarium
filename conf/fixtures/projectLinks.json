@@ -1,0 +1,18 @@
+[
+{
+	"links" : [
+    {"label": "Google", "url": "google.com"},
+    {"label": "", "url": "www.futurice.com"},
+    {"label": "Trello", "url": "http://www.trello.com"}
+    ],
+	"project" : "PAaltoScampi"
+  },
+  {
+  "links" : [
+    {"label": "futurice", "url": "www.futurice.com"},
+    {"label": "Akvaario", "url": "akvaario.futurice.com"},
+    {"label": "", "url": "http://www.trello.com"}
+    ],
+	"project" : "PFuturiceDashboard"
+  }
+]

@@ -1,0 +1,49 @@
+#!/bin/sh
+ 
+#
+# This is an init.d script for akvaario. 
+# Place this file in the /etc/init.d directory (on Ubuntu)
+# and rename it to akvaario.
+#
+ 
+# www-user
+USER=www-data
+
+APP_NAME="akvaario"
+ 
+# Path to the application start
+APPLICATION_PATH=/opt/akvaario/
+ 
+. /lib/lsb/init-functions
+ 
+case "$1" in
+    start)
+        echo -n "Starting ${APP_NAME}"
+        su $USER -c "${APPLICATION_PATH}bin/${APP_NAME} -Dconfig.file=/opt/akvaario/conf/environments/prod.conf >/dev/null &"
+        RETVAL=$?
+ 
+        if [ $RETVAL -eq 0 ]; then
+            log_end_msg 0
+        else
+            log_end_msg 1
+        fi  
+        ;;  
+    stop)
+        echo -n "Shutting down ${APP_NAME}"
+        su $USER -c "cat ${APPLICATION_PATH}RUNNING_PID | xargs kill"
+ 
+        RETVAL=$?
+ 
+        if [ $RETVAL -eq 0 ]; then
+            log_end_msg 0
+        else
+            log_end_msg 1
+        fi
+        ;;
+    *)
+        echo "Usage: $SCRIPTNAME {start|stop}" >&2
+        exit 1
+        ;;
+esac
+ 
+exit 0

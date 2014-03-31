@@ -1,0 +1,37 @@
+@(statusForm: Form[controllers.AdminController.ProjectStatus], project: String, projects: List[play.api.libs.json.JsObject])(implicit flash: Flash)
+
+@import helper._
+@admin(projects, project) {
+
+  <h1>Update project status</h1>
+
+  @helper.form(action = routes.AdminController.updateProjectStatus(project), 'class -> "form-group") { 
+    <div class="form-row">
+      @inputText(field = statusForm("spentBudget"), '_label -> "Spent budget (€)", 'type -> "number", 'class -> "form-control")
+    </div>
+    <div class="form-row">
+      @inputText(field = statusForm("budgetNotes"), '_label -> "Budget notes", 'class -> "form-control")
+    </div>
+    <div class="form-row">
+      @inputText(field = statusForm("spentHours"), '_label -> "Spent hours", 'type -> "number", 'class -> "form-control")
+    </div>
+    <div class="form-row">
+      @inputText(field = statusForm("hourNotes"), '_label -> "Hour notes", 'class -> "form-control")
+    </div>
+    <div class="form-row">
+      @select(field = statusForm("workStatus"), options = options(List("Normal","Busy","Crisis")), '_label -> "Work status", 'class -> "form-control")
+    </div>
+    <div class="form-row">
+      @inputText(field = statusForm("holidays"), '_label -> "Holidays and aways", 'class -> "form-control")
+    </div>
+    <input type="hidden" name="project" value="@project">
+    <div class="form-btn-container">
+      <input type="submit" class="btn btn-success" value="Submit entry">
+    </div>
+  }
+  <!-- For displaying success message, can be moved around -->
+  @flash.get("success").map { msg =>
+    <div class="flash alert alert-success">@msg</div>
+  }
+
+}

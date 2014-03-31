@@ -1,0 +1,58 @@
+[
+  {
+    "userid": "akvaariotest",
+    "provider": "userpass",
+    "firstname": "Akvaario",
+    "lastname": "Testuser",
+    "email": "akvaario@futurice.com",
+    "avatar": "",
+    "authmethod": "userPassword",
+    "password": ""
+  },
+  {
+    "userid": "scampitest",
+    "provider": "userpass",
+    "firstname": "Scampi",
+    "lastname": "Testuser",
+    "email": "akvaario+scampi@futurice.com",
+    "avatar": "",
+    "authmethod": "userPassword",
+    "password": ""
+  },
+  {
+    "userid": "projectlessuser",
+    "provider": "userpass",
+    "firstname": "Projectless",
+    "lastname": "Testuser",
+    "email": "akvaario+projectless@futurice.com",
+    "avatar": "",
+    "authmethod": "userPassword",
+    "password": ""
+  },
+  {
+    "userid": "employee",
+    "provider": "futurice",
+    "firstname": "futurice",
+    "lastname": "employee",
+    "email": "akvaario+sinlesignon@futurice.com",
+    "avatar": "",
+    "authmethod": "futurice",
+    "password": ""
+  },
+  {
+    "userid" : "devtest",
+    "provider" : "userpass",
+    "firstname" : "Test",
+    "lastname" : "Test",
+    "email" : "akvaario@futurice.com",
+    "avatar" : "N/A",
+    "authmethod" : "userpass",
+    "password" : {
+        "hasher" : "bcrypt",
+        "password" : "$2a$10$9hdmqqaCEafwfj9ReaYS6.kWVcVo6ACEsTwX4F8aLwKGdqhF5H6Iq",
+        "salt" : null
+    }
+
+}
+
+]

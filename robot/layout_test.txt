@@ -1,0 +1,23 @@
+*** Settings ***
+
+Resource            resource.txt
+Suite Teardown      Close All Browsers
+
+*** Variables ***
+
+${project}	FuturiceDashboard
+
+*** Test Cases ***
+
+Valid Login
+	Open Login Page
+	Input username 						${username}
+	Input password 						${password}
+	Submit Credentials
+	Akvaario Page Should Be Open
+
+Correct Project Name
+	Project Name Should Be		${project}
+
+Incorrect Project Name
+	Project Name Should Not Be 	invalid

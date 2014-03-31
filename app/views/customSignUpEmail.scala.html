@@ -1,0 +1,12 @@
+@(token: String,email: String)(implicit request: RequestHeader, lang: Lang)
+@import securesocial.core.IdentityProvider
+<html>
+	<body>
+		<p>Welcome to Akvaario!</p>
+
+		<p>You have been added as a customer to a Futurice project in Akvaario. To create your user account please follow this
+		    <a href="@securesocial.core.providers.utils.RoutesHelper.signUp(token).absoluteURL(IdentityProvider.sslEnabled)">link</a>. Your username is @email.
+		</p>
+		<p>This message was sent by Akvaario.<br>The link is valid for 24 hours.</p>
+	</body>
+</html>

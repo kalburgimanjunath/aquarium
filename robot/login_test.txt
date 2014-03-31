@@ -1,0 +1,17 @@
+*** Settings ***
+
+Resource            resource.txt
+Suite Teardown      Close All Browsers
+
+*** Variables ***
+${username}			devtest
+${password}			AkvaarioDevTest1
+
+*** Test Cases ***
+
+Valid Login
+	Open Login Page
+	Input username 						${username}
+	Input password 						${password}
+	Submit Credentials
+	Akvaario Page Should Be Open

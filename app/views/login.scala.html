@@ -1,0 +1,79 @@
+@(loginForm: Form[(String,String)], errorMsg: Option[String] = None)(implicit request: RequestHeader, lang: Lang)
+
+@import securesocial.core.providers.utils.RoutesHelper
+@import helper._
+@import securesocial.core.Registry
+@import securesocial.core.AuthenticationMethod._
+@import securesocial.core.providers.UsernamePasswordProvider.UsernamePassword
+
+<!DOCTYPE html>
+
+<html ng-app="akvaario">
+<head>
+<meta charset="utf-8">
+<title>Akvaario - Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="@routes.Assets.at("lib/bootstrap/bootstrap.min.css")" rel="stylesheet">
+<link href="@routes.Assets.at("src/css/login.css")" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+      <p id="heading">Akvaario</p>
+    </div>
+
+    @errorMsg.map { msg =>
+      <div class="row">
+        <div class="alert alert-error">
+            @Messages(msg)
+        </div>
+      </div>
+    }
+
+    @request.flash.get("success").map { msg =>
+      <div class="row">
+        <div class="alert alert-info">
+            @msg
+        </div>
+      </div>
+    }
+
+    @request.flash.get("error").map { msg =>
+      <div class="row">
+        <div class="alert alert-error">
+            @msg
+        </div>
+      </div>
+    }
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <img class="logo" src="@routes.Assets.at("images/futurice-logo.png")">
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <form class="form-signin" name="loginform" method="POST" action="@securesocial.controllers.routes.ProviderController.authenticateByPost("userpass", None)">
+        <input id="username" type="text" name="username" class="track_content input-block-level" placeholder="Username">
+        <input id="password" type="password" name="password" class="track_content input-block-level" placeholder="Password">
+        <input type="hidden" name="timing_data" value="" id="timing_data">
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
+      <div id="or-spacer"><span>- OR -</span></div>
+      <form name="openid-login-form" class="form-signin" method="POST" action="@security.routes.FuturiceOpenIDController.prepareOpenID">
+        <input id="futu-user" type="text" name="username" placeholder="Futurice Username" class="input-block-level">
+        <button id="futu-login-btn" class="btn btn-primary" name="futu-login-btn" type="submit">Futurice Login</button>
+      </form>
+      </div>
+  </div>
+</div>
+
+<!-- javascript -->
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="@routes.Assets.at("lib/bootstrap/bootstrap.js")"></script>
+
+</body>
+
+</html>

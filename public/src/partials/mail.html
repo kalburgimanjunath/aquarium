@@ -1,0 +1,15 @@
+<div ng-repeat="mail in mails | orderBy:'-receivedDate'" class="panel panel-default accordion-mail mail{{$index}}">
+  <accordion-group id="mail-group"  is-open="$first">
+    <accordion-heading>
+      <div class="row" onclick="ga('send', 'event', 'mails', 'Row clicked');">
+        <div class="col-xs-8">
+          <span class="heading-left" onclick="ga('send', 'event', 'mails', 'Subject clicked');">{{mail.subject}}</span>
+        </div>
+        <div class="col-xs-4">
+          <span class="pull-right heading-right" onclick="ga('send', 'event', 'mails', 'Date clicked');">{{mail.receivedDate | date:'yyyy/MM/dd HH:mm'}}</span>
+        </div>
+      </div>
+    </accordion-heading>
+    <pre>{{mail.body}}</pre>
+  </accordion-group>
+</div>

@@ -1,0 +1,52 @@
+[
+  {
+    "subject": "Weekly mail test 2",
+    "body": "This is the second mail, with a secondary cc-address that shouldn't be\r\nprocessed.\r\n\r\nBye!\r\n",
+    "senderAddress": "c.patrik.carlson@gmail.com",
+    "senderName": "Patrik Carlson",
+    "project": "pfuturicedashboard",
+    "sentDate": 1390570396000,
+    "receivedDate": 1390570397000,
+    "active": true
+  },
+  {
+    "subject": "Weekly mail test 1",
+    "body": "Hi!\r\n\r\nThis is a test for the first weekly mail to the dashboard project.\r\n\r\nTa-ta!\r\n",
+    "senderAddress": "c.patrik.carlson@gmail.com",
+    "senderName": "Patrik Carlson",
+    "project": "pfuturicedashboard",
+    "sentDate": 1390570340000,
+    "receivedDate": 1390570341000,
+    "active": true
+  },
+  {
+    "subject": "Akvaario BCC test",
+    "body": "In this email akvaario was set as the BCC address.\r\n",
+    "senderAddress": "oskar.e@gmail.com",
+    "senderName": "Oskar Ehnström",
+    "project": "pfuturicedashboard",
+    "sentDate": 1390977410000,
+    "receivedDate": 1390977411000,
+    "active": true
+  },
+  {
+    "subject": "Email with first to-address as akvaario",
+    "body": "This is a test email that was sent with akvaario as the first to-address.\r\n",
+    "senderAddress": "oskar.e@gmail.com",
+    "senderName": "Oskar Ehnström",
+    "project": "pfuturicedashboard",
+    "sentDate": 1390978256000,
+    "receivedDate": 1390978256000,
+    "active": true
+  },
+  {
+    "subject": "Weekly mail test",
+    "body": "Hi!\r\n\r\nThis is a test for the first weekly mail to the AaltoScampi project.\r\n\r\nBye!\r\n",
+    "senderAddress": "test.email@mail.com",
+    "senderName": "Patrik Carlson",
+    "project": "paaltoscampi",
+    "sentDate": 1390570340000,
+    "receivedDate": 1390570341000,
+    "active": true
+  }
+]

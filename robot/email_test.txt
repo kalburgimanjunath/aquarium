@@ -1,0 +1,41 @@
+*** Settings ***
+
+Resource            resource.txt
+Suite Teardown      Close All Browsers
+
+*** Variables ***
+
+${subject}		akvaario 
+
+*** Test Cases ***
+
+Valid Login
+	Open Login Page
+	Input username 						${username}
+	Input password 						${password}
+	Submit Credentials
+	Akvaario Page Should Be Open
+
+Email Exists
+	Email Should Exist
+
+Correct Email Subject
+	Email Subject Should Be			${subject}
+
+Incorrect Email Subject
+	Email Subject Should Not Be 	invalid   	#a string that the project name should not be
+
+Visible Email
+	Email Body Should Be Visible
+
+
+Email Collapses And Opens When Clicked 
+	Email Body Should Be Visible
+	Click Element		//a[@class='accordion-toggle ng-binding']
+	Email Body Should Not Be Visible
+	Click Element		//a[@class='accordion-toggle ng-binding']
+	Email Body Should Be Visible
+
+
+
+

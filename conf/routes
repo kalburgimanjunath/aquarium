@@ -1,0 +1,57 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                       	    controllers.Application.index
+
+# API endpoints
+GET 	/api/:project 					controllers.APIController.project(project: String)
+GET     /api/mail/:project              controllers.APIController.getProjectEmails(project: String)
+GET     /api/user/current				controllers.APIController.getUserProject
+POST	/api/customerproject			controllers.APIController.addCustomerProject()
+GET 	/api/form/status/:project 		controllers.APIController.getStatusForms(project: String)
+GET 	/api/form/links/:project 		controllers.APIController.getLinksForm(project: String)
+GET   	/api/form/contactinfo/:project 	controllers.APIController.getCustomerContactInfoForm(project: String)
+GET 	/api/user/current/role 			controllers.APIController.getUserRole
+GET 	/api/user/image/:username		controllers.APIController.userImage(username)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                 	controllers.Assets.at(path="/public", file)
+
+# Admin section
+GET		/admin/:project/addcustomer		controllers.AdminController.showAddCustomerForm(project: String)
+GET		/admin/:project/editlinks		controllers.AdminController.showProjectLinksForm(project: String)
+POST	/admin/:project/editlinks		controllers.AdminController.editProjectLinks(project: String)
+GET		/admin/:project/contactinfo		controllers.AdminController.showContactInfoForm(project: String)
+POST	/admin/:project/contactinfo		controllers.AdminController.editCustomerContactInfo(project: String)
+GET   	/admin/:project/status          controllers.AdminController.showProjectStatusForm(project: String)
+POST  	/admin/:project/status          controllers.AdminController.updateProjectStatus(project: String)
+GET		/admin/:project					controllers.AdminController.showProjectStatusForm(project: String)
+
+# Login page
+GET     /login                      	securesocial.controllers.LoginPage.login
+GET     /logout                     	securesocial.controllers.LoginPage.logout
+POST	/openid							security.FuturiceOpenIDController.prepareOpenID
+
+# User Registration and password handling 
+GET     /signup                     	securesocial.controllers.Registration.startSignUp
+POST    /signup                     	securesocial.controllers.Registration.handleStartSignUp
+GET     /signup/:token              	securesocial.controllers.Registration.signUp(token)
+POST    /signup/:token              	securesocial.controllers.Registration.handleSignUp(token)
+GET     /reset                      	securesocial.controllers.Registration.startResetPassword
+POST    /reset                      	securesocial.controllers.Registration.handleStartResetPassword
+GET     /reset/:token               	securesocial.controllers.Registration.resetPassword(token)
+POST    /reset/:token               	securesocial.controllers.Registration.handleResetPassword(token)
+GET     /password                   	securesocial.controllers.PasswordChange.page
+POST    /password                   	securesocial.controllers.PasswordChange.handlePasswordChange
+
+
+# Providers entry points
+GET     /authenticate/:provider     	securesocial.controllers.ProviderController.authenticate(provider, redirectTo: Option[String])
+POST    /authenticate/:provider     	securesocial.controllers.ProviderController.authenticateByPost(provider, redirectTo: Option[String])
+GET     /not-authorized             	securesocial.controllers.ProviderController.notAuthorized
+
+
+# Map wildcard to front-page to make angular show 404
+GET     /*wildcard                    	controllers.Application.find(wildcard)

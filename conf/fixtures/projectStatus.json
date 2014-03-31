@@ -1,0 +1,32 @@
+[
+  {
+  "time" : 1394755200000,
+  "spentBudget" : 0,
+  "budgetNotes" : "Project has not yet started",
+  "spentHours" : 0,
+  "hourNotes" : "",
+  "workStatus" : "Project members can't wait to get started.",
+  "holidays" : "Code monkeys with holidays...? You must be kidding me",
+  "project" : "PFuturiceDashboard"
+  },
+  {
+  "time" : 1394973712000,
+	"spentBudget" : 500,
+	"budgetNotes" : "We are going according to plan",
+	"spentHours" : 7000,
+	"hourNotes" : "Some of the developes have put in extra hours to stay in schedule",
+	"workStatus" : "Nothing remarkable",
+	"holidays" : "Code monkeys with holidays...? You must be kidding me",
+	"project" : "PFuturiceDashboard"
+  },
+  {
+  "time" : 1394755200000,
+	"spentBudget" : 0,
+	"budgetNotes" : "Project has not yet started",
+	"spentHours" : 0,
+	"hourNotes" : "",
+	"workStatus" : "Project members can't wait to get started.",
+	"holidays" : "Code monkeys with holidays...? You must be kidding me",
+	"project" : "PAaltoScampi"
+  }
+]

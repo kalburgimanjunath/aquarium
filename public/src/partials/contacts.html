@@ -1,0 +1,11 @@
+<div ng-repeat="user in contacts">
+    <div class="contact col-md-12 col-sm-6">
+        <img class="contact-image" ng-src="/api/user/image/{{user.username}}" err-src="/assets/images/user.png" onclick="ga('send', 'event', 'useless-click', 'Contact image clicked');">
+        <address>
+            <strong>{{user.first_name + ' ' + user.last_name}}</strong><br>
+            {{user.title}}<br>
+            {{user.phone1}}<br>
+            <a href="mailto:{{user.email}}" onclick="ga('send', 'event', 'link', 'Contact address clicked', this.href);">{{user.email}}</a>
+        </address>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+@(projects: List[play.api.libs.json.JsObject], project: String)(content: Html)
+@import play.api.libs.json.JsObject
+@import play.api.libs.json.JsArray
+@appName = @{ Messages("application.name") }
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Akvaario</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="@routes.Assets.at("lib/bootstrap/bootstrap.min.css")" rel="stylesheet">
+	<link href="@routes.Assets.at("src/css/admin.css")" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+  <!-- Standard iPhone --> 
+  <link rel="apple-touch-icon" sizes="57x57" href="@routes.Assets.at("images/apple-touch-icon-iphone.png")">
+  <!-- Retina iPhone --> 
+  <link rel="apple-touch-icon" sizes="114x114" href="@routes.Assets.at("images/apple-touch-icon-iphone-retina.png")">
+  <!-- Standard iPad --> 
+  <link rel="apple-touch-icon" sizes="72x72" href="@routes.Assets.at("images/apple-touch-icon-ipad.png")">
+  <!-- Retina iPad --> 
+  <link rel="apple-touch-icon" sizes="144x144" href="@routes.Assets.at("images/apple-touch-icon-ipad-retina.png")">
+
+	<!-- Font Awesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- Google Analytics -->
+	<!-- REMEMBER: GA does not work with AdBlock enabled! -->
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+				'ga');
+
+		// This row for actual analytics (localhost row should be commented)
+		ga('create', 'UA-47866178-1', 'futurice.com');
+
+		// This row for localhost analytics (above row should be commented)
+		//ga('create', 'UA-47866178-1', 'none');
+
+		ga('send', 'pageview');
+		ga('send', 'action');
+		// Track page views (every time page is loaded)
+		ga('send', 'event', 'page-loaded', 'Page (re)loaded');
+	</script>
+	<!-- END Google Analytics -->
+
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">
+					<i class="fa fa-cogs fa-lg"></i> Admin Panel
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="@routes.AdminController.showProjectStatusForm(project)">
+						<i class="fa fa-info"></i> Update status
+					</a></li>
+					<li><a href="@routes.AdminController.showAddCustomerForm(project)">
+						<i class="fa fa-users"></i> Add customers
+					</a></li>
+					<li><a href="@routes.AdminController.showProjectLinksForm(project)">
+						<i class="fa fa-list"></i> Edit links
+					</a></li>
+					<li><a href="@routes.AdminController.showContactInfoForm(project)">
+						<i class="fa fa-phone"></i> Add customer contacts
+					</a></li>
+				</ul>
+
+				<div class="btn-group navbar-right">
+					<a class="btn btn-default navbar-btn" href="/@project">
+						<i class="fa fa-check"></i> Done
+					</a>
+					<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-exchange"></i> @project <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+					@* TODO: Use routes for dynamic url *@
+					@for(p <- projects){<li><a href="/admin/@{(p\"name").as[String]}">@{(p\"name").as[String]}</a></li>}
+						<li><a href=""></a></li>
+					</ul>
+				</div>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="main">
+			@content
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<!-- javascript -->
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="@routes.Assets.at("src/js/AddCustomer.js")"></script>
+	<script src="@routes.Assets.at("src/js/EditLinks.js")"></script>
+	<script src="@routes.Assets.at("lib/bootstrap/bootstrap.js")"></script>
+	<!-- Checks current URL to set active navigation tab -->
+	<script type="text/javascript">
+		url = window.location.pathname
+		$('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+		$('ul.nav a').filter(function() {
+		    return this.href == url;
+		}).parent().addClass('active');
+	</script>
+</body>
+
+</html>
+

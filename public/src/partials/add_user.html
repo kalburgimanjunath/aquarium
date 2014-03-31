@@ -1,0 +1,18 @@
+<div>
+	<form name="addCustomer" role="form" ng-submit="processForm()">
+		<div class="form-group">
+			<label for="emailInput">Customer e-mail</label>
+			<input id="emailInput" type="email" name="email" class="form-control" ng-model="formData.email" placeholder="Enter email" required>
+		</div>
+		<div class="form-group">
+			<label for="projectInput">Customer project</label>
+			<input id="projectInput "type="text" name="project" class="form-control" ng-model="formData.project" placeholder="Enter project" required>
+		</div>
+		<div class="form-group">
+			<input type="submit" id="submit" value="Add customer" class="btn btn-default" ng-disabled="disabled" />
+		</div>
+		<div id="projectSuccess" ng-class="projectStatus">{{projectStatusMsg}}</div>
+		<div id="emailSuccess" ng-class="emailStatus">{{emailStatusMsg}}</div>
+		<a class="btn btn-success" href="./editlinks">Next</a>
+	</form>
+</div>

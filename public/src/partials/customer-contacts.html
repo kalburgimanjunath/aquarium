@@ -1,0 +1,10 @@
+<div ng-repeat="user in customerContacts">
+    <div class="contact col-md-12 col-sm-6">
+        <address>
+            <strong>{{user.name}}</strong><br>
+            {{user.title}}<br>
+            {{user.phoneNumber}}<br>
+            <a href="mailto:{{user.email}}" onclick="ga('send', 'event', 'link', 'Contact address clicked', this.href);">{{user.email}}</a>
+        </address>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+*** Settings ***
+Library     Selenium2Library
+
+*** Variables ***
+${APP URL}                  	http://localhost:9000/login
+${BROWSER}                  	Firefox
+${DELAY}                    	0.8
+${USERNAME}						devtest
+${PASSWORD}						AkvaarioDevTest1
+
+*** Keywords ***
+Open App Page
+    Open Browser            	${APP URL}      ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed      	${DELAY}
+    App Page Should Be Open
+
+App Page Should Be Open
+    Location Should Be      	${APP URL}
+
+Project Name Should Be
+	[Arguments]	 				${project}
+	Element Should Contain		//*[@id='project-name']	${project}
+
+Project Name Should Not Be
+	[Arguments]	 				${project}
+	Run Keyword And Expect Error  *  Project Name Should Be	 ${project}
+
+
+Email Should Exist
+	Element Should be Visible	//div[@class='row ng-scope']
+
+Email Subject Should Be
+	[Arguments]	 				${subject}
+	Element Should Contain		//span[@class='heading-left ng-binding']	${subject}
+
+Email Subject Should Not Be
+	[Arguments]	 				${subject}
+	Run Keyword And Expect Error  *  Email Subject Should Be	 ${subject}
+
+Email Body Should Be Visible
+	Element Should Be Visible	//pre[@class='ng-scope ng-binding']
+
+Email Body Should Not Be Visible
+	Element Should Not Be Visible	//pre[@class='ng-scope ng-binding']
+
+
+Login Page Should Be Open
+	Title Should be 			Akvaario - Login
+
+Open Login Page
+	Open Browser 				${APP URL}		${BROWSER}
+	Maximize Browser Window
+	Set Selenium Speed      	${DELAY}
+	Login Page Should Be Open
+
+Input Username
+	[Arguments]					${username}
+	Input Text					username 		${username}
+
+Input Password
+	[Arguments]					${password}
+	Input Text					password 		${password}
+
+Submit Credentials
+	Click Button 				Sign in
+
+Akvaario Page Should Be Open
+	Title Should Be 			Akvaario

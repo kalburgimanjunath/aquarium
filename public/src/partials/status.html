@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Status</div>
+  <div class="panel-body">
+    <carousel interval="myInterval">
+      <slide ng-repeat="report in reports | orderBy:'-time'" active="report.active">
+        <div class="carousel-caption">
+          <p>{{report.time | date:'yyyy/MM/dd HH:mm'}}</p>
+        </div>
+
+        <ul class="list-group">
+          <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Budget spent</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.spentBudget}} €</span>
+          </div>
+            <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Budget notes</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.budgetNotes}}</span>
+          </div>
+          <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Hours spent</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.spentHours}} h</span>
+            </div>
+            <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Hours notes</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.hourNotes}}</span>
+            </div>
+          <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Work status</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.workStatus}}</span>
+            </div>
+          <div class="row">
+            <span class="status-title col-lg-3 col-md-4 col-sm-3 col-xs-12">Aways & holidays</span><span class="status-response col-lg-9 col-md-8 col-sm-9 col-xs-12">{{report.holidays}}</span>
+          </div>
+          </ul>
+      </slide>
+    </carousel>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+@(contactInfoForm: Form[controllers.AdminController.ContactInfo], project: String, projects: List[play.api.libs.json.JsObject])(implicit flash: Flash)
+
+@import helper._
+@admin(projects, project) {
+
+  <h1>Add new customer contact info</h1>
+  @helper.form(action = routes.AdminController.editCustomerContactInfo(project), 'class -> "form-group") {
+    <div class="form-row">@inputText(field = contactInfoForm("name"), '_label -> "Name", 'class -> "form-control")</div>
+    <div class="form-row">@inputText(field = contactInfoForm("title"), '_label -> "Title", 'class -> "form-control")</div>
+    <div class="form-row">@inputText(field = contactInfoForm("email"), '_label -> "Email", 'class -> "form-control")</div>
+    <div class="form-row">@inputText(field = contactInfoForm("phoneNumber"), '_label -> "Phone number", 'class -> "form-control")</div>
+    <input type="hidden" name="project" value="@project">
+    <div class="form-btn-container">
+      <input type="submit" class="btn btn-success" value="Save contact info">
+    </div>
+    
+  }
+  <!-- For displaying success message, can be moved around -->
+  @flash.get("success").map { msg =>
+    <div class="flash alert alert-success">@msg</div>
+  }
+}

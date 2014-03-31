@@ -1,0 +1,57 @@
+@(projectLinksForm: Form[controllers.AdminController.ProjectLinks], project: String, projects: List[play.api.libs.json.JsObject])(implicit flash: Flash)
+
+
+@import helper._
+@admin(projects, project) {
+
+  <h1>Edit project links</h1>
+
+  @helper.form(action = routes.AdminController.editProjectLinks(project), 'class -> "form-group", 'id -> "edit-links-form") {
+
+
+    <!--<div class="form-row">@textarea(field = projectLinksForm("links"), '_label -> s"$project links", 'class -> "form-control")</div>-->
+
+    <span id="links-subheading">Remember to fill in protocol, i.e. 'http://'</span>
+
+    <div>
+      <table id="links-form-table">
+        <tr><td><h4>Labels</h4></td><td><h4>URLs</h4></td></tr>
+        <tr>
+          <td>
+            @repeat(projectLinksForm("labels"), min = 0) { labelField =>
+              @inputText(labelField, '_label->"", 'class -> "form-control")
+            }
+          </td>
+          <td>
+            @repeat(projectLinksForm("urls"), min = 0) { urlField =>
+              @inputText(urlField, '_label->"", 'class -> "form-control")
+            }
+          </td>
+        </tr>
+      </table>
+
+      <div class="clearfix">
+        <div class="input">
+          <a id="add-link-btn" type="button" class="btn btn-default">
+            <i class="fa fa-plus"></i> Add new link
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <input type="hidden" name="project" value="@project">
+    <div class="form-btn-container">
+      <input type="submit" class="btn btn-success" value="Update links">
+    </div>
+
+  }
+  <!-- For displaying success message, can be moved around -->
+  @flash.get("success").map { msg =>
+    <div class="flash alert alert-success">@msg</div>
+    <a class="btn btn-primary" href="./contactinfo">
+      Add contact information <i class="fa fa-chevron-right"></i>
+    </a>
+	}
+
+}

@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+  min-height: 500px;
+}
+
+body {
+  height: 100%;
+  background-color: #ffffff;
+  background-image: url('/assets/images/futurice-splash.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+#heading {
+  text-align: center;
+  font-family: "museo-sans-1", "museo-sans-2", 'Gill Sans', 'Century Gothic', 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 60px;
+  color: #4c9018;
+}
+
+.container {
+  max-width: 400px;
+  position: relative;
+  top: 40%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+}
+
+.leftcolumn {
+  text-align:right
+}
+
+input {
+  width: 100%;
+}
+
+#create_button {
+  color: #ffffff;
+  background-color: #4a8a1b;
+  background-image: -moz-linear-gradient(top, #629f2b, #2e7206);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#629f2b), to(#2e7206));
+  background-image: -webkit-linear-gradient(top, #629f2b, #2e7206);
+  background-image: -o-linear-gradient(top, #629f2b, #2e7206);
+  background-image: linear-gradient(to bottom, #629f2b, #2e7206);
+  border-color: #2b6d05;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff629f2b', endColorstr='#ff2e7206', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  text-shadow: 0 -1px 0 #385f19;
+}
+
+#create_button button:hover, #create_button button:active, #create_button button.active, #create_button button.disabled, #create_button button[disabled] {
+  color: #ffffff;
+  background-color: #2e7206;
+}
+
+#cancel_button {
+  color: #4c9018;
+}
+
+@media (max-width: 767px) { 
+  html {
+    min-height: 670px;
+  }
+  .container {
+    top: 0%;
+    padding-top: 20px;
+    margin-top: 0px;
+    max-width: 300px;
+    margin-left: -150px;
+  }
+
+  .leftcolumn {
+    text-align:left;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+}
+
+
